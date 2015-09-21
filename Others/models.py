@@ -1,0 +1,71 @@
+from django.db import models
+
+class User(models.Model):
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+    institutionAffiliation = models.CharField(max_length=70)
+    institutionCountry = models.CharField(max_length=30)
+
+
+class ChairPerson(models.Model):
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+    institutionAffiliation = models.CharField(max_length=70)
+    institutionCountry = models.CharField(max_length=30)
+    
+    password = models.CharField(validator=[RegexValidators(regex='^.{8}', message="Length of password is too short.")], max_length=30)    
+
+
+class CommitteeMember(models.Model):
+    name = models.CharField(max_length=30)
+    surname = models.CharField(max_length=30)
+    institutionAffiliation = models.CharField(max_length=70)
+    institutionCountry = models.CharField(max_length=30)
+
+    password = models.CharField(validator=[RegexValidators(regex='^.{8}', message="Length of password is too short.")], max_length=30) 
+
+
+class Delegate(models.Model):
+
+class Ticket(models.Model):
+    
+
+
+class Register(models.Model):
+
+class Conference(models.Model):
+
+class Author(models.Model):
+
+class CorrespondingAuthor(models.Model):
+
+
+class Article(models.Model):
+    paperName = models.CharField(max_length=200)
+    paperIDno = models.IntegerField(default=0 , primary_key=True)
+    keyword = models.CharField("""Many to many??""")
+    abstract = models.TextField()
+    reviewComment = models.TextField()
+    reviewScore = models.DecimalField(max_digits=2, decimal_places=1)
+    paperAuthor = models.CharField(max_length=80)
+    paperPubDate = models.DateField('date_published')
+    paperUpload = models.FileField("""upload-to=MEDIA-ROOT""", max_length=100)
+
+
+
+class AvailableArticle(models.Model):
+
+
+class AssigningPaper(models.Model):
+
+class Reviewer(models.Model):
+
+class ReviewedArticle(models.Model):
+
+class WithdrawnArticle(models.Model):
+
+class AcceptedArticle(models.Model):
+
+class RejectedArticle(models.Model):
+
+
